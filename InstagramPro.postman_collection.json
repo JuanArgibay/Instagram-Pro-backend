@@ -1,0 +1,413 @@
+{
+	"info": {
+		"_postman_id": "4ebe9d18-cb71-4e11-bc77-37a0c8935cf0",
+		"name": "InstagramPro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"Antoni\",\r\n    \"email\":\"nanaa.gonzalez@gmail.com\",\r\n    \"password\":\"1234567Aa!\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/users",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "validateUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:4000/users/validate/b7e26865-3201-4c45-a8a4-21e1eb36d7d8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4000",
+							"path": [
+								"users",
+								"validate",
+								"b7e26865-3201-4c45-a8a4-21e1eb36d7d8"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LoginUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"juargibay@gmail.com\",\r\n    \"password\":\"1234567Aa?\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/users/login",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditUser",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Antonio}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "Anton",
+									"type": "default"
+								},
+								{
+									"key": "avatar",
+									"type": "file",
+									"src": "/C:/Users/juarg/Pictures/Saved Pictures/hack.png"
+								},
+								{
+									"key": "email",
+									"value": "asdfa@sdfa.com",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/users",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetUser&Photos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/users/4",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users",
+								"4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Owner User",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Antonio}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/users",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Entries",
+			"item": [
+				{
+					"name": "NewEntry",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Antonio}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "description",
+									"value": "Erase una vez",
+									"type": "default"
+								},
+								{
+									"key": "Location",
+									"value": "asturias",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": "/C:/Users/juarg/Pictures/GameCenter/ArcheAge/ArcheAge_sample.jpg"
+								},
+								{
+									"key": "image2",
+									"type": "file",
+									"src": "/C:/Users/juarg/Pictures/Saved Pictures/hack.png"
+								},
+								{
+									"key": "image3",
+									"type": "file",
+									"src": [],
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{server}}/entries",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"entries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListEntries",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Antonio}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/entries",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"entries"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LikeEntry",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Antonio}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/entries/1/like",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"entries",
+								"1",
+								"like"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "InsertCommentToEntry",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Antonio}}",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"comment\":\"This is a comment\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{server}}/entries/1/comment",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"entries",
+								"1",
+								"comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getEntriComment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{server}}/entries/1/comment",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"entries",
+								"1",
+								"comment"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetSingleEntriy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Antonio}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/entries/users",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"entries",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "OwnPhotos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{Antonio}}",
+								"type": "default"
+							}
+						],
+						"url": {
+							"raw": "{{server}}/entries/users",
+							"host": [
+								"{{server}}"
+							],
+							"path": [
+								"entries",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "server",
+			"value": "",
+			"type": "default"
+		},
+		{
+			"key": "Antonio",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
