@@ -3,9 +3,15 @@ const fs = require('fs/promises');
 const path = require('path');
 const sharp = require('sharp');
 const { v4: uuid } = require('uuid');
+const {
+    SENDGRID_API_KEY,
+    MYSQL_HOST,
+    PORT,
+    UPLOADS_DIR,
+} = require('./jsConfig');
 
 // Asignameos el API Key a sendgrid
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+sgMail.setApiKey(SENDGRID_API_KEY);
 
 /**
  * ####################
@@ -43,13 +49,13 @@ const verifyEmail = async (email, registrationCode) => {
     // Mensaje que enviaremos al email del usuario
     const emailBody = `
     Te acabar de registrar en InstagramPro.
-    Pulsa este enlace para verificar tu cuenta: http://${process.env.MYSQL_HOST}:${process.env.PORT}/users/validate/${registrationCode}
+    Pulsa este enlace para verificar tu cuenta: http://${MYSQL_HOST}:${PORT}/users/validate/${registrationCode}
     `;
 
     try {
         const msg = {
             to: email,
-            from: process.env.SENDGRID_FROM,
+            from: SENDGRID_FROM,
             subject,
             text: emailBody,
             html: `
@@ -122,7 +128,7 @@ const indexPagination = async (totalResults, startIndex, page, limit) => {
 
 const savePhoto = async (img) => {
     // Creamos una ruta absoluta al directorio donde vamos a subir las imágenes
-    const uploadsPath = path.join(__dirname, process.env.UPLOADS_DIR);
+    const uploadsPath = path.join(__dirname, UPLOADS_DIR);
 
     try {
         // Intentamos acceder al directorio de subida de archivos
@@ -160,7 +166,7 @@ const savePhoto = async (img) => {
 const deletePhoto = async (imgName) => {
     try {
         // Creamos la ruta absoluta a la imagen que queremos borrar
-        const imgPath = path.join(__dirname, process.env.UPLOADS_DIR, imgName);
+        const imgPath = path.join(__dirname, UPLOADS_DIR, imgName);
 
         try {
             // Intentamos acceder al archivo con la imagen

@@ -1,7 +1,7 @@
 const mysql = require('mysql2/promise');
 
 // Obtenemos las variables de entorno mediante destructuring.
-const { MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB } = process.env;
+const { MYSQL_HOST, MYSQL_USER, MYSQL_PASS, MYSQL_DB } = require('./jsConfig');
 
 let pool;
 
