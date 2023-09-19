@@ -8,6 +8,7 @@ const {
     MYSQL_HOST,
     PORT,
     UPLOADS_DIR,
+    SENDGRID_FROM,
 } = require('./jsConfig');
 
 // Asignameos el API Key a sendgrid
