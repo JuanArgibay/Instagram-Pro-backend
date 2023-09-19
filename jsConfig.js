@@ -19,4 +19,5 @@ module.exports = {
     SECRET,
     UPLOADS_DIR,
     SENDGRID_FROM,
+    SENDGRID_API_KEY,
 };
