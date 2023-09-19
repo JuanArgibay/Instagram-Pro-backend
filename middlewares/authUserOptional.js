@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const { SECRET } = require('./jsConfig');
 
 const generateError = require('../helpers');
 
@@ -13,7 +14,7 @@ const authUserOptional = async (req, res, next) => {
             let payload;
 
             try {
-                payload = jwt.verify(authorization, process.env.SECRET);
+                payload = jwt.verify(authorization, SECRET);
             } catch {
                 throw generateError('Incorrect token', 401);
             }

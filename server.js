@@ -5,7 +5,7 @@ const fileUpload = require('express-fileupload');
 const morgan = require('morgan');
 const cors = require('cors');
 
-const { PORT, UPLOADS_DIR, MYSQL_HOST } = process.env;
+const { PORT, UPLOADS_DIR, MYSQL_HOST } = require('./jsConfig');
 
 const app = express();
 

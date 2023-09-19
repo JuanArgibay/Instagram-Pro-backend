@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken');
+const { SECRET } = require('./jsConfig');
 
 const selectUserByIdQuery = require('../db/userQueries/selectUserByIdQuery');
 
@@ -18,7 +19,7 @@ const authUser = async (req, res, next) => {
 
         try {
             // intentamos obtener la informacion del token.
-            payload = jwt.verify(authorization, process.env.SECRET);
+            payload = jwt.verify(authorization, SECRET);
         } catch {
             throw generateError('Incorrect token', 401);
         }
